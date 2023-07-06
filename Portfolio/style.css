@@ -3,23 +3,56 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100%;
+    position: relative;
     min-height: 100%;
     font-family: 'Roboto Mono', serif;
-    background:black;
+    background-color: black;
     color: whitesmoke;
+    overflow: hidden;
+
 }
 
 @font-face {
     font-family: 'anurati';
-    src: url('fonts/Anurati-Regular.otf');    
+    src: url('fonts/Anurati-Regular.otf');
 }
 
 .bg-black {
-    background-color: #000;
+    background-color: black;
+}
+
+/* -- Background -- */
+.background {
+    background-image: url(images/backgroundimg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 1;
+}
+
+.background:before {
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.background:hover:before {
+    background-position: -50px;
+    opacity: .7;
 }
 
 /** NAV START **/
-.navbar > span a {
+
+.navbar {
+    z-index: 1;
+}
+
+.navbar-nav {
+    margin-right: 200px;
+}
+
+.navbar>span a {
     color: whitesmoke;
     text-decoration: none;
     font-family: 'anurati';
@@ -29,14 +62,15 @@ body {
     animation: glitch 750ms infinite;
 }
 
-.navbar > span a:hover {
+.navbar>span a:hover {
     text-decoration: none;
 }
 
 .navbar .navbar-nav li a {
-    font-size: 18px;
+    font-size: 20px;
+    color: whitesmoke;
     font-weight: normal;
-    font-family: 'Roboto Mono',serif;
+    font-family: 'Roboto Mono', serif;
 }
 
 .navbar .navbar-nav li {
@@ -44,66 +78,65 @@ body {
 }
 
 /** NAV HOVER ANIMATION **/
-.navbar-nav a::before, .navbar-nav a::after {
-	display: inline-block;
-	opacity: 0;
-	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-	-moz-transition: -moz-transform 0.3s, opacity 0.2s;
-	transition: transform 0.3s, opacity 0.2s;
+.navbar-nav a::before,
+.navbar-nav a::after {
+    display: inline-block;
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
 }
 
 .navbar-nav a::before {
-	margin-right: 7px;
+    margin-right: 0px;
     font-size: 20px;
-	content: '{';
-	-webkit-transform: translateX(20px);
-	-moz-transform: translateX(20px);
-	transform: translateX(20px);
+    content: '/';
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
 }
 
-.navbar-nav a::after {
-	margin-left: 7px;
-    font-size: 20px;
-	content: '}';
-	-webkit-transform: translateX(-20px);
-	-moz-transform: translateX(-20px);
-	transform: translateX(-20px);
-}
-
-.navbar-nav a:hover, .navbar-nav a:hover::before, .navbar-nav a:hover::after, .navbar-nav a:focus::before, .navbar-nav a:focus::after {
-	color:whitesmoke !important;
-	background-color: transparent !important;	
-	opacity: 1;
-	-webkit-transform: translateX(0px);
-	-moz-transform: translateX(0px);
-	transform: translateX(0px);
+.navbar-nav a:hover,
+.navbar-nav a:hover::before,
+.navbar-nav a:hover::after,
+.navbar-nav a:focus::before,
+.navbar-nav a:focus::after {
+    color: white !important;
+    background-color: transparent !important;
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+    -moz-transform: translateX(0px);
+    transform: translateX(0px);
 }
 
 .navbar-dark .navbar-toggler-icon {
-    background-image: none;    
+    background-image: none;
     font-weight: 300;
     font-size: 20px;
     color: whitesmoke;
     transition: all 0.3s ease-out;
     animation: glitch 750ms infinite;
 }
+
 /** NAV HOVER ANIMATION END **/
+
 /** NAV END **/
 
 /** Home page START **/
 .home {
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .home h1 {
     font-weight: lighter;
     text-align: center;
-    position: relative;
-    margin-bottom: 200px;
-    font-size: 60px;
+    position: absolute;
+    margin-bottom: 550px;
+    font-size: 45px;
     color: whitesmoke;
     letter-spacing: 1px;
     line-height: 75px;
@@ -113,27 +146,49 @@ body {
     font-weight: lighter;
     text-align: center;
     position: absolute;
-    opacity: 0;
-    margin-top: 200px;
-    font-size: 55px;
+    opacity: 800px;
+    margin-bottom: 350px;
+    font-size: 45px;
     color: whitesmoke;
     letter-spacing: 1px;
     line-height: 75px;
-    transform: translateY(3rem);
-    animation: fadeUp 3.5s ease forwards;
 }
 
-.home h1::before,
-.home h1::after {
-    content: "";
-    position: absolute;
-    inset: 0;
+/** Typewriter **/
+#blinkelement::after {
+    content: '_';
+    margin-left: 6px;
+    font-weight: bold;
+    animation: blink 0.7s infinite;
 }
 
-.home h1::before {
-    background: black;
-    animation: typewriter 3s ease forwards;
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
+
+#typeeffect::after {
+    content: '_';
+    margin-left: 6px;
+    font-weight: bold;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 /** Home page END **/
 
 /** About me page START **/
@@ -168,17 +223,17 @@ body {
     border: 0 solid whitesmoke;
     padding: 15px 15px;
     margin-top: 0;
-    margin-left: 0;
-    margin-right: 80px;
-    font-size: 27px;
-    width: 20px;
-    height: 20px;
+    margin-left: 1000;
+    margin-right: 40px;
+    font-size: 30px;
+    width: 10px;
+    height: 10px;
     border-radius: 15px;
     transition: 0.2s;
 }
 
 .social a i {
-    transition: 0.8s;
+    transition: all 0.3s ease-out;
 }
 
 .social a:hover {
@@ -186,11 +241,13 @@ body {
     background-color: black;
     border: 0 solid black;
     color: whitesmoke;
+
 }
 
 .social a:hover i {
     transform: rotate(15deg) scale(1.2);
 }
+
 /** About me page END **/
 
 /** Projects page START **/
@@ -211,6 +268,7 @@ body {
 .projects .card-body {
     color: whitesmoke;
 }
+
 /** Projects page END **/
 
 /** Contact page START **/
@@ -302,8 +360,8 @@ body {
 .contact-form a::after {
     content: "";
     position: absolute;
-    bottom:  0;
-    right:0;
+    bottom: 0;
+    right: 0;
     width: 10px;
     height: 10px;
     border-bottom: 1px solid lightgray;
@@ -311,6 +369,7 @@ body {
     transition: 0.5s;
     transition-delay: 0s;
 }
+
 /** Contact page END **/
 
 /** MOBILE VIEW START **/
@@ -318,35 +377,44 @@ body {
     .home h1 {
         font-size: 25px;
     }
+
     .home h2 {
         font-size: 25px;
     }
+
     .about-me {
         margin-top: 40px;
     }
+
     .about-me h1 {
         font-size: 35px;
         margin-bottom: 30px;
     }
+
     .about-me p {
         font-size: 16px;
     }
+
     .social {
         justify-content: space-around;
     }
+
     .social a {
         width: 10px;
         height: 10px;
         margin-top: 5%;
-        margin-left: 80px;
+        margin-left: 60px;
         margin-right: 0;
     }
+
     .projects {
         margin-top: 40px;
     }
+
     .contact {
         margin-top: 40px;
     }
+
     .contact h1 {
         font-size: 23px;
     }
@@ -359,9 +427,11 @@ body {
         font-size: 15px;
     }
 }
+
 /** MOBILE VIEW END **/
 
 @media (prefers-reduced-motion: reduce) {
+
     *,
     ::before,
     ::after {
@@ -391,37 +461,44 @@ body {
 
 @keyframes glitch {
     0% {
-      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
     }
+
     14% {
-      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+            -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
     }
+
     15% {
-      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
     }
+
     49% {
-      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
+            0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
     }
+
     50% {
-      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
     }
+
     99% {
-      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
+            0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
     }
+
     100% {
-      text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
-        -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
+        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
+            -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
+            -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
     }
 }
+
 /** ANIMATIONS END **/
