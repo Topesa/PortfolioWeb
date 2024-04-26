@@ -9,8 +9,38 @@ body {
     font-family: 'Roboto Mono', serif;
     background-color: black;
     color: whitesmoke;
-    overflow: hidden;
+}
 
+body#white {
+    background-color: whitesmoke;
+
+    .bg-black {
+        background-color: whitesmoke;
+    }
+
+    .navbar-nav>.active>a {
+        color: black !important;
+    }
+
+    .navbar>span a {
+        color: black;
+    }
+
+    .navbar-dark .navbar-toggler-icon {
+        color: black;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        color: dimgray;
+    }
+
+    .navbar-nav a:hover,
+    .navbar-nav a:hover::before,
+    .navbar-nav a:hover::after,
+    .navbar-nav a:focus::before,
+    .navbar-nav a:focus::after {
+        color: black !important;
+    }
 }
 
 @font-face {
@@ -20,26 +50,6 @@ body {
 
 .bg-black {
     background-color: black;
-}
-
-/* -- Background -- */
-.background {
-    background-image: url(images/backgroundimg.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    z-index: 1;
-}
-
-.background:before {
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    transition: all 1s ease;
-}
-
-.background:hover:before {
-    background-position: -50px;
-    opacity: .7;
 }
 
 /** NAV START **/
@@ -59,7 +69,7 @@ body {
     font-size: 35px;
     font-weight: normal;
     transition: all 0.3s ease-out;
-    animation: glitch 750ms infinite;
+    animation: glitch 800ms infinite;
 }
 
 .navbar>span a:hover {
@@ -78,6 +88,7 @@ body {
 }
 
 /** NAV HOVER ANIMATION **/
+
 .navbar-nav a::before,
 .navbar-nav a::after {
     display: inline-block;
@@ -88,12 +99,12 @@ body {
 }
 
 .navbar-nav a::before {
-    margin-right: 0px;
+    margin-right: 0;
     font-size: 20px;
     content: '/';
-    -webkit-transform: translateX(20px);
-    -moz-transform: translateX(20px);
-    transform: translateX(20px);
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    transform: translateX(10px);
 }
 
 .navbar-nav a:hover,
@@ -101,8 +112,8 @@ body {
 .navbar-nav a:hover::after,
 .navbar-nav a:focus::before,
 .navbar-nav a:focus::after {
-    color: white !important;
-    background-color: transparent !important;
+    color: white;
+    background-color: transparent;
     opacity: 1;
     -webkit-transform: translateX(0px);
     -moz-transform: translateX(0px);
@@ -115,7 +126,7 @@ body {
     font-size: 20px;
     color: whitesmoke;
     transition: all 0.3s ease-out;
-    animation: glitch 750ms infinite;
+    animation: glitch 800ms infinite;
 }
 
 /** NAV HOVER ANIMATION END **/
@@ -128,7 +139,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .home h1 {
@@ -192,21 +202,20 @@ body {
 /** Home page END **/
 
 /** About me page START **/
+
 .about-me {
-    color: whitesmoke;
+    color: black;
     margin-top: 100px;
 }
 
 .about-me h1 {
     margin-bottom: 50px;
-    font-style: italic;
-    font-size: 50px;
-    font-weight: lighter;
+    font-size: 35px;
 }
 
 .about-me p {
     margin-top: 10px;
-    font-size: 27px;
+    font-size: 25px;
     font-weight: 300;
 }
 
@@ -219,8 +228,8 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: whitesmoke;
-    border: 0 solid whitesmoke;
+    color: black;
+    border: 0 solid black;
     padding: 15px 15px;
     margin-top: 0;
     margin-left: 1000;
@@ -229,10 +238,10 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 15px;
-    transition: 0.2s;
+    /* transition: 0.2s; */
 }
 
-.social a i {
+/* .social a i {
     transition: all 0.3s ease-out;
 }
 
@@ -241,12 +250,11 @@ body {
     background-color: black;
     border: 0 solid black;
     color: whitesmoke;
-
 }
 
 .social a:hover i {
     transform: rotate(15deg) scale(1.2);
-}
+} */
 
 /** About me page END **/
 
@@ -274,15 +282,16 @@ body {
 /** Contact page START **/
 .contact {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin-top: 150px;
     user-select: none;
+    background-color: whitesmoke;
 }
 
 .contact h1 {
-    font-style: italic;
-    font-size: 40px;
-    font-weight: lighter;
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -295,26 +304,26 @@ body {
 .contact-form textarea,
 .contact-form input {
     border-radius: 25px;
-    border: 1px solid lightgray;
+    border: 1px solid black;
     resize: none;
     padding: 10px 30px;
     outline: 0;
-    color: whitesmoke;
+    color: black;
     background: transparent;
     font-size: 15px;
 }
 
 .contact-form textarea:focus,
 .contact-form input:focus {
-    border: 1px solid lightgray;
-    color: whitesmoke;
+    border: 1px solid black;
+    color: black;
     background: transparent;
 }
 
 .contact-form label {
     font-family: 'Roboto Mono', serif;
     padding: 10px;
-    color: whitesmoke;
+    color: black;
     transition: 0.2s;
     cursor: text;
 }
@@ -323,7 +332,7 @@ body {
     position: absolute;
     padding: 10px 30px;
     margin: 0 35px;
-    color: lightgray;
+    color: black;
     text-decoration: none;
     letter-spacing: 2px;
     font-size: 15px;
@@ -331,10 +340,10 @@ body {
 }
 
 .contact-form a:hover {
-    background: lightgray;
-    color: black;
+    background: black;
+    color: whitesmoke;
     transition-delay: 0.5s;
-    box-shadow: 0 0 50px lightgray;
+    box-shadow: 0 0 2px black;
 }
 
 .contact-form a::before {
@@ -344,8 +353,8 @@ body {
     left: 0;
     width: 10px;
     height: 10px;
-    border-top: 1px solid lightgray;
-    border-left: 1px solid lightgray;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
     transition: 0.5s;
     transition-delay: 0s;
 }
@@ -364,8 +373,8 @@ body {
     right: 0;
     width: 10px;
     height: 10px;
-    border-bottom: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
     transition: 0.5s;
     transition-delay: 0s;
 }
