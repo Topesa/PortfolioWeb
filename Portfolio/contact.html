@@ -2,23 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Contact</title>
 
-    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i"
-        rel="stylesheet">
+        rel="stylesheet" />
 </head>
 
 <body id="white">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <span class="ml-md-5 ml-lg-5">
-            <a class="navbar-brand" href="home.html">TO PE</a>
+            <a class="navbar-brand" href="home.html">T O P E</a>
         </span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCenteredContent"
             aria-controls="navbarCenteredContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,31 +43,35 @@
         </div>
     </nav>
 
-    <section class="container-fluid contact">
-        <h1>Hit me up and let's create something special!</h1>
-        <form action="#" method="POST" class="contact-form">
-            <div class="form-group">
-                <label for="name"><i class="far fa-user"></i> Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="email"><i class="far fa-envelope"></i> E-mail</label>
-                <input type="text" id="email" name="email" class="form-control" required>
-
-            </div>
-            <div class="form-group">
-                <label for="subject"><i class="far fa-folder"></i> Subject</label>
-                <input type="text" id="subject" name="subject" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="msg"><i class="far fa-comment"></i> Message</label>
-                <textarea id="msg" rows="8" name="msg" class="form-control" required></textarea>
-            </div>
-            <div class="d-flex justify-content-center">
-                <a href="#" type="submit" id="submit">Submit <i class="far fa-paper-plane"></i></a>
-            </div>
-        </form>
-    </section>
+    <main>
+        <section class="container-fluid contact mt-5">
+            <h1 class="text-center mb-4">Hit me up and let's create something special!</h1>
+            <form method="POST" class="contact-form mx-auto" data-netlify="true" action="thanks.html"
+                style="max-width: 600px;">
+                <div class="form-group">
+                    <label for="name"><i class="far fa-user" aria-hidden="true"></i> Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="far fa-envelope" aria-hidden="true"></i> E-Mail</label>
+                    <input type="email" id="email" name="email" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="subject"><i class="far fa-folder" aria-hidden="true"></i> Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label for="msg"><i class="far fa-comment" aria-hidden="true"></i> Message</label>
+                    <textarea id="msg" name="msg" rows="8" class="form-control" required></textarea>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button type="submit" id="submit" class="btn btn-outline-dark border-0">
+                        Submit <i class="far fa-paper-plane" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
 
     <script src="https://kit.fontawesome.com/79114c3f93.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
