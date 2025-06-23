@@ -193,7 +193,7 @@ const findShadowRoot = element => {
   return findShadowRoot(element.parentNode);
 };
 
-const noop = () => {};
+const noop = () => { };
 /**
  * Trick to restart an element's animation
  *
@@ -751,7 +751,8 @@ class Config {
   _mergeConfigObj(config, element) {
     const jsonConfig = isElement(element) ? Manipulator.getDataAttribute(element, 'config') : {}; // try to parse
 
-    return { ...this.constructor.Default,
+    return {
+      ...this.constructor.Default,
       ...(typeof jsonConfig === 'object' ? jsonConfig : {}),
       ...(isElement(element) ? Manipulator.getDataAttributes(element) : {}),
       ...(typeof config === 'object' ? config : {})
@@ -2264,7 +2265,8 @@ class Dropdown extends BaseComponent {
       }];
     }
 
-    return { ...defaultBsPopperConfig,
+    return {
+      ...defaultBsPopperConfig,
       ...(typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig)
     };
   }
@@ -3594,7 +3596,8 @@ class TemplateFactory extends Config {
   changeContent(content) {
     this._checkContent(content);
 
-    this._config.content = { ...this._config.content,
+    this._config.content = {
+      ...this._config.content,
       ...content
     };
     return this;
@@ -4001,7 +4004,8 @@ class Tooltip extends BaseComponent {
     if (this._templateFactory) {
       this._templateFactory.changeContent(content);
     } else {
-      this._templateFactory = new TemplateFactory({ ...this._config,
+      this._templateFactory = new TemplateFactory({
+        ...this._config,
         // the `content` var has to be after `this._config`
         // to override config.content in case of popover
         content,
@@ -4095,7 +4099,8 @@ class Tooltip extends BaseComponent {
         }
       }]
     };
-    return { ...defaultBsPopperConfig,
+    return {
+      ...defaultBsPopperConfig,
       ...(typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig)
     };
   }
@@ -4203,7 +4208,8 @@ class Tooltip extends BaseComponent {
       }
     }
 
-    config = { ...dataAttributes,
+    config = {
+      ...dataAttributes,
       ...(typeof config === 'object' && config ? config : {})
     };
     config = this._mergeConfigObj(config);
@@ -4303,14 +4309,16 @@ defineJQueryPlugin(Tooltip);
 const NAME$3 = 'popover';
 const SELECTOR_TITLE = '.popover-header';
 const SELECTOR_CONTENT = '.popover-body';
-const Default$2 = { ...Tooltip.Default,
+const Default$2 = {
+  ...Tooltip.Default,
   content: '',
   offset: [0, 8],
   placement: 'right',
   template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div>' + '</div>',
   trigger: 'click'
 };
-const DefaultType$2 = { ...Tooltip.DefaultType,
+const DefaultType$2 = {
+  ...Tooltip.DefaultType,
   content: '(null|string|element|function)'
 };
 /**
