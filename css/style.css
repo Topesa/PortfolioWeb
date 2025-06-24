@@ -227,7 +227,7 @@ body#white {
     margin-top: 0;
     margin-left: 10px;
     margin-right: 40px;
-    font-size: 45px;
+    font-size: 30px;
     width: 10px;
     height: 10px;
     border-radius: 15px;
@@ -397,10 +397,10 @@ body#white {
     }
 
     .social a {
-        width: 10px;
-        height: 10px;
+        width: 5px;
+        height: 5px;
         margin-top: 5%;
-        margin-left: 60px;
+        margin-left: 110px;
         margin-right: 0;
     }
 
